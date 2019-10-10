@@ -1,6 +1,6 @@
 {%- macro render_link_item(link,depth)-%}
   {%- if link != [] && link.label -%}
-    <li class="hs-menu-item hs-menu-depth-{{depth}} {{'hs-item-has-children' if link.children}}" aria-role="none" {{'aria-haspopup="true"' if link.children}}>
+    <li class="hs-menu-item hs-menu-depth-{{depth}} {{'hs-item-has-children' if link.children}} {% if link.activeBranch %}active-branch{% endif %} {% if link.activeNode %}active{% endif %}" aria-role="none" {{'aria-haspopup="true"' if link.children}}>
       <a href="{{link.url if link.url else '#'}}" aria-role="menuitem">{{link.label}}</a>
       {%- if link.children -%}
       <ul class="hs-menu-children-wrapper" aria-role="menu">
